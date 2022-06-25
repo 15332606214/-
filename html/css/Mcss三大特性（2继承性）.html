@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 12px/2.5;
+            /* 1.5是指行高是字号的2.5倍 */
+            color: red;
+        }
+        div{
+            font-size: 20px;
+        }
+        /* 继承性 */
+    </style>
+</head>
+<body>
+    <div>
+        <p>龙生龙，凤生凤。</p>
+        <!-- 继承body的属性 -->
+        <div>粉红色的回忆</div>
+        <!-- 继承div的字号和boody的颜色 -->
+    </div>
+    <ul>
+        <li>没有指定属性</li>
+    </ul>
+    <!-- li继承ul属性，ul继承body属性 -->
+</body>
+</html>

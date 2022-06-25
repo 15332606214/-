@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div p,a{
+        color: aqua;
+    }
+    /* 并集选择器 */
+
+    a:link {
+        color: #333;
+    }
+    a:visited {
+        color: blue;
+    }
+    a:hover {
+        color: blueviolet;
+    }
+    a:active {
+        color: green;
+    }
+    /* 链接伪类选择器:1，a:link选择所有未被访问的链接；2，a:visited选择所有已被访问的链接；3，a:hover选择鼠标指针位于其上的链接；4，a:active选择活动的链接（鼠标按下为弹起时） */
+    input:focus{
+        background-color: yellow;
+    }
+    /* :focus伪类选择器，主要应用于表单元素，即<input> */
+</style>
+<body>
+    <div>
+        <p>选择1</p>
+        <a>选择2</a>
+    </div>
+    <!-- 并集选择器 -->
+<a href="#">小猪佩奇</a>
+<!-- 链接伪类选择器 -->
+<input type="text">
+<input type="text">
+<input type="text">
+<!-- :focus伪类选择器 -->
+</body>
+</html>

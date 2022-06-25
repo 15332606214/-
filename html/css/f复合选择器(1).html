@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul li a{color: yellow;}
+    /* 后代选择器 */
+    div>a{color: red;}
+    /* 子选择器 */
+</style>
+<body>
+    <ul>
+        <li>我是无序列表</li>
+        <li><a></a></li>
+    </ul>
+<!-- 后代选择器元素二只要是元素一的后代即可 -->
+<div>
+    <a>儿子a</a>
+    <p>
+        <a>孙子a</a>
+    </p>
+    <!-- 子选择器只有当元素二是元素一的亲儿子才生效 -->
+</div>
+</body>
+</html>
