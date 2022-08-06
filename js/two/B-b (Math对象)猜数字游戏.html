@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 如果大于该数字，就提示数字大了，继续猜;
+        // 如果小于该数字，就提示数字小了，继续猜;
+        // 如果等于该数字，就提示猜对了，结束程序;
+        function getRandom(min,max){
+            return Math.floor( Math.random() * ( max - min + 1 ) ) + min;
+        }
+        var random = getRandom(1,10);
+        while( true ){ //死循环
+            var num = prompt('你来猜?输入1-10的数字');
+            if( num > random ){
+                alert('你猜大了');
+            }else if( num < random ){
+                alert('你猜小了');
+            }else{
+                alert('你猜对了');
+                //退出循环，结束程序
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
