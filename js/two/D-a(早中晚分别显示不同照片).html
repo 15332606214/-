@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/zaoshang.png" alt="">
+    <div></div>
+    <script>
+        // 1,获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        // 2,得到当前小时数
+        var date= new Date();
+        var h = date.getHours();
+        // 3,判断小时数改变图片
+        if(h<11){
+            img.src = 'images/zaoshang.png';
+            div.innerHTML = '亲,早上好啊!';
+        }else if(h<14){
+            img.src = 'images/zhongwu.png';
+            div.innerHTML = '亲,中午好啊!';
+        }else{
+            img.src = 'images/xiawu.png';
+            div.innerHTML = '亲,下午好啊!';
+        }
+    </script>
+</body>
+</html>
