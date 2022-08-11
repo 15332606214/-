@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab{
+            background-color: aqua;
+            width: 800px;
+            height: 200px;
+            margin:  auto;
+        }
+        .tab-list{
+            width: 800px;
+            height: 40px;
+            background-color: #eef1ee;
+        }
+        .tab-list ul li{
+            display: inline-block;
+            line-height: 40px;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+        .current{
+            background-color: red;
+            color: white;
+        }
+        .item{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab-list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（5000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+
+        <div class="tab-con" >
+            <div class="item" style="display:block">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（5000）模块内容
+            </div>
+        </div>
+    </div>
+
+    <!-- 1,tab栏切换有两个大的模块 -->
+    <!-- 2，上模块选项卡，点击某一个，当前这一个底色为红色，其余不变（排他思想）修改类名的方式 -->
+    <!-- 3，下模块选项卡，跟随上模块变化，写到点击事件中 -->
+    <!-- 4，下模块显示内容和上模块一一对应 -->
+    <!-- 核心思路：给所有li添加自定义属性，属性值从0开始 -->
+    <!-- 当我们点击li时，tab-con里对应序号内容显示，其余隐藏(排他-思想) -->
+    <script>
+        // 获取元素
+        var tablist=document.querySelector('.tab-list');
+        var lis = document.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+
+        // for循环绑定点击事件
+        for(var i = 0 ; i < lis.length; i++){
+            // 给五个li设置索引号
+            lis[i].setAttribute('index',i);
+            lis[i].onclick = function(){
+                // 将所有li的class清除
+                for(var i = 0 ; i < lis.length; i++){
+                    lis[i].className='';
+                }
+                //留下点击的这一个
+                this.className='current';
+
+                // 下面显示的内容模块
+                var index = this.getAttribute('index');
+                console.log(index);
+
+                // 将所有item隐藏，然后使点击的哪一个显示出来
+                for(var i = 0 ; i < items.length; i++){
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
