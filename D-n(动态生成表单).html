@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,th{
+            border: 1px solid #333;
+        }
+        thead tr{
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<!-- 1,因为里面的学生数据都是动态的,我们需要s动态生成。这里我们模拟数据,自己定义好数据。数据我们采取对象形式存储。
+2所有的数据都是放到tbody里面的行里面。
+3因为行很多,我们需要循环创建多个行(对应多少人)
+4每个行里面又有很多单元格(对应里面的数据) , 我们还继续使用循环创建多个单元格，并且把数据存入里面(双重for循环)
+5最后-列单元格是删除,需要单独创建单元格。 -->
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>   
+    </table>
+    <script>
+        // 1准备好学生的数据
+        var dates = [{
+            name:'高乐',
+            subject:'javascript',
+            score:100
+        },{
+            name:'高兴',
+            subject:'javascript',
+            score:80
+        },{
+            name:'刘乐',
+            subject:'javascript',
+            score:90
+        },{
+            name:'刘欢',
+            subject:'javascript',
+            score:95
+        }];
+        // 往tbody中创建行，有几个人（通过数组长度）创建几行
+        var tbody = document.querySelector('tbody');
+        for(var i = 0 ; i < dates.length ; i++){
+            // 1.创建tr行
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // 2.行中创建单元格td 单元格数量取决于每个对象中的属性个数 for循环遍历对象dates[i]
+             for(var k in dates[i]){
+                // 创建单元格
+                var td = document.createElement('td');
+                // 把对象中的属性值给td
+                td.innerHTML = dates[i][k];
+                tr.appendChild(td);
+             }
+            // 3.创建删除单元格
+            var td = document.createElement('td');
+            td.innerHTML='<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+        // 4,删除操作
+        var as = document.querySelectorAll('a');
+        for(var i = 0; i < as.length ; i++){
+            as[i].onclick=function(){
+                // 点击a删除当前a所在的行 node.removeChild(child)
+                tbody.removeChild(this.parentNode.parentNode)
+
+            }
+        }
+</script>
+   
+</body>
+</html>
