@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search{
+            position: relative;
+            width: 180px;
+            margin: 100px;
+        }
+        .con{
+            display: none;
+            position: absolute;
+            top: -40px;
+            width: 170px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 5px 0;
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+        }
+        .con::before{
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+    </style>
+</head>
+    <!-- 1.快递单号输入内容时，上面的大号字体盒子( con )显示(这里面的文字
+    2.同时把快递单号里面的值( value )获取过来赋值给con盒子( inerText )做为内容
+    3.如果快递单号里面内容为空， 则隐藏大号字体盒子(con)盒子
+    4.注意 ：  keydown和keypress在文本框里面的特点:他们两个事件触发的时候，文字还没有落入文本框中。
+    5.注意 ：  keyup事件触发的时候，文字已经客入文本框里面 -->
+<body>
+    <div class="search">
+        <div class="con">123</div>
+        <input type="text" placeholder="请输入您的快递单号" class="jd">
+    </div>
+    <script>
+        var con = document.querySelector('.con');
+        var jd = document.querySelector('.jd');
+        jd.addEventListener('keyup',function(){
+            if(this.value==''){
+                con.style.display = 'none';
+            }else{
+                con.style.display = 'block';
+                con.innerText = this.value;
+            }  
+        })
+        // 失去焦点，隐藏.con盒子
+        jd.addEventListener('blur',function(){
+            con.style.display='none';
+        });
+        // 获得焦点，显示盒子
+        jd.addEventListener('focus',function(){
+            if(this.value !== ''){
+                con.style.display='block';
+            }
+        })
+    </script>
+</body>
+</html>
