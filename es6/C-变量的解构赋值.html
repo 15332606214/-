@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的解构赋值</title>
+</head>
+<body>
+    <script>
+        //数组的结构
+        const F4 = ['小沈阳','刘能','赵四','宋小宝'];
+        let[xiao,liu,zhao,song] = F4;
+        console.log(xiao);
+        console.log(liu);
+        console.log(zhao);
+        console.log(song);
+        // 对象的结构
+        const shan = {
+            name:'赵本山',
+            age:'不详',
+            xiaopin:function(){
+                console.log('我可以讲小品');
+            }
+        }
+        let{name,age,xiaopin}=shan;
+
+        console.log(name);
+        console.log(age);
+        console.log(xiaopin);
+
+        xiaopin();
+    </script>
+</body>
+</html>
