@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s = new Set(['大事','小事','好事','大事']);
+        console.log(s.size);
+        s.add('坏事');
+        console.log(s);
+        s.delete('坏事')
+        console.log(s);
+        
+        console.log(s.has('好事'));
+    </script>
+    
+</body>
+</html>
