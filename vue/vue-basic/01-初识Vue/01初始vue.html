@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortout icon" href="../favicon.ico">
+    <title>vue</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div class="root">
+        <h1>Hello,{{name}}</h1>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        // 创建vue实例
+        new Vue({
+            el:'#root', //el用来指定当前Vue实例为那个容器服务，值通常为css选择器字符串
+            data:{      //data用于存储数据，数据供el指定的容器去使用。值暂时写成一个对象
+                name:'小尚'
+            }
+        })
+
+
+    </script>
+</body>
+</html>
