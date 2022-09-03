@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单向数据绑定</title>   
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        单向数据绑定:<input type="text" v-bind:value="name"><br/>
+        双向数据绑定:<input type="text" v-model="name">
+    </div>
+
+
+    <script type="text/javascript">
+        // 创建vue实例
+        new Vue({
+            el:'#root', //el用来指定当前Vue实例为那个容器服务，值通常为css选择器字符串
+            data:{      //data用于存储数据，数据供el指定的容器去使用。值暂时写成一个对象
+                name:'小尚'
+            }
+        })
+    </script>
+</body>
+</html>
