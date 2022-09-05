@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortout icon" href="../favicon.ico">
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <title>vue</title>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        .demo1{
+            height: 50px;
+            background-color: skyblue;
+        }
+        .box1{
+            padding: 5px;
+            background-color: skyblue;
+        }
+        .box2{
+            padding: 5px;
+            background-color: orange;
+        }
+        .list{
+            width: 200px;
+            height: 200px;
+            background-color: peru;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+    </head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <h1>欢迎来到{{name}}</h1>
+        <!-- .prevent阻止默认行为（常用） -->
+        <a href="http://www.atguigu.com" @click.prevent="showinfo">点我提示信息</a>
+        <!-- 阻止事件冒泡（常用） -->
+        <div class="demo1" @click="showinfo" >
+            <button @click.stop="showinfo">点我提示信息</button>
+        </div>
+        <!-- 事件只触发一次（常用） -->
+        <button @click.once="showinfo">点我提示信息</button>
+        <!-- 使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showmsg(1)">
+            div1
+            <div class="box2" @click="showmsg(2)">
+                div2
+            </div>
+        </div>
+        <!-- 只有event.target是当前操作元素时才触发事件 -->
+        <div class="demo1" @click.self="showinfo" >
+            <button @click="showinfo">点我提示信息</button>
+        </div>
+        <!-- 事件默认行为立即执行，无需等待事件回调执行完毕 -->
+        <ul @wheel.passive="demo" class="list">
+            <!-- @scroll滚动条滚动 @wheel滚动轮滚动 -->
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        // 创建vue实例
+        new Vue({
+            el:'#root', //el用来指定当前Vue实例为那个容器服务，值通常为css选择器字符串
+            data:{      //data用于存储数据，数据供el指定的容器去使用。值暂时写成一个对象
+                name:'小尚'
+            },
+            methods:{
+                showinfo(e){
+                    // e.preventDefault() 
+                    alert('同学你好')
+                    // console.log(e.target);
+                },
+                showmsg(msg){
+                    console.log(msg);
+                },
+                demo(){
+                    for( i = 0 ; i < 1000 ; i++){
+                        console.log('#');
+                    }
+                    console.log('累死了');
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>
