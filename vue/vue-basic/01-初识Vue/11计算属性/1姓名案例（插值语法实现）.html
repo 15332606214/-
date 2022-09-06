@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortout icon" href="../favicon.ico">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>姓名案例-插值语法{{}}实现</title>
+    </head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        姓:<input type="text" v-model="firstName"><br/>
+        名:<input type="text" v-model="lastName"><br/>
+        全名:<span>{{firstName.slice(0,3)}}-{{lastName}}</span>
+        <!-- .slice取前三位其余不显示 -->
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el:'#root',
+            data:{
+                firstName:'张',
+                lastName:'三'
+            }
+        })
+
+
+    </script>
+</body>
+</html>
