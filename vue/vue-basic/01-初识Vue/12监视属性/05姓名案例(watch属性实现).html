@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortout icon" href="../favicon.ico">
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>姓名案例-watch属性实现</title>
+    </head>
+<body>
+    <div id="root">
+        姓:<input type="text" v-model="firstName"><br/><br/> 
+        名:<input type="text" v-model="lastName"><br/><br/>
+        全名:<span>{{fullName}}</span>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el:'#root',
+            data:{
+                firstName:'张',
+                lastName:'三',
+                fullName:'张-三'
+            },
+            watch:{
+                
+                firstName(val){
+                    setTimeout(()=>{
+                        this.fullName = val+'-'+this.lastName
+                    },1000)
+                    
+                },
+                lastName(val){
+                    this.fullName = this.newValue+'-'+val
+                }
+            }
+        })
+    </script>
+</body>
+</html>
