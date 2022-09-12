@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新时的问题</title>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 遍历数组 -->
+        <h2>人员列表</h2>
+        <button @click="updatemei">更新小马信息</button>
+        <ul>
+            <li v-for="(p,index) in persons" :key="index">
+                <!-- 第一种写法:key='p.id';第二种写法:key='index' -->
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+// 用computed实现
+new Vue({
+        el:'#root',
+        data:{
+            persons:[
+                {id:001,name:'马冬梅',age:26,sex:'女'},
+                {id:002,name:'周冬雨',age:19,sex:'女'},
+                {id:003,name:'周杰伦',age:20,sex:'男'},
+                {id:004,name:'温兆伦',age:18,sex:'男'}
+            ]
+        },
+        methods:{
+            updatemei(){
+                // this.persons[0].name = '小马',
+                // this.persons[0].age = '50',
+                // this.persons[0].sex = '男'
+                this.persons[0] = {id:'001',name:'小马',age:40,sex:'男'}
+            }
+            
+        }
+    })
+</script>
+</html>
+<!-- 问题：点击时代码层面数据已经改变，但Vue无法读取，具体见06Vue监测数据 -->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新时的问题</title>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       <h2>学校名称:{{name}}</h2>
+       <h2>学校地址:{{address}}</h2>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+// 用computed实现
+new Vue({
+        el:'#root',
+       data:{
+        name:'小尚',
+        address:'北京',
+        student:{
+            name:'tom',
+            age:{
+                rAge:40,
+                sAge:29
+            },
+            friends:[
+                {name:'jerry',age:35}
+            ]
+        }
+       }
+    })
+</script>
+</html>
