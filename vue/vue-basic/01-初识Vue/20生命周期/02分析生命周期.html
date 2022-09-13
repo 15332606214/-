@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <title>分析生命周期</title>
+    </head>
+<body>
+    <div id="root">
+        <h2 v-text="n"></h2>
+        <h2>当前的n值是:{{n}}</h2>
+        <button @click="add">点我n+1</button>
+        <button @click="bye">点我销毁vm</button>
+        <!-- $vm.destroy完全销毁一个实例，清除它与其他实例的连接，解绑他的全部指令及事件监听器 -->
+    </div>
+    <!-- 生命周期：八个钩子:beforeCreate(创建之前),created(创建完毕);
+        beforeMount(挂载之前),mounted(挂载完毕);
+        beforeUpdate(更新之前),updated(更新完毕);
+        beforeDestroy(销毁之前),Destroy(销毁完毕) -->
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        new Vue({
+            el:'#root', 
+            // template:`
+            //     <template>
+            //         <h2>当前的n值是:{{n}}</h2>
+            //         <button @click="add">点我n+1</button>
+            //     </template>
+            //     `,
+            data:{      
+                n:1
+            },
+            methods:{
+                add(){
+                    console.log('add');
+                    this.n++
+                },
+                bye(){
+                    console.log('bye');
+                    this.$destroy()
+                }
+            },beforeCreate(){
+                console.log('beforeCreate');
+            },
+            created(){
+                console.log('created');
+            },
+            beforeMount(){
+                console.log('beforeMount');
+            },
+            mounted(){
+                console.log('mounted')
+                console.log(this)
+            },
+            beforeUpdate(){
+                console.log('beforeUpdate');
+            },
+            updated(){
+                console.log('updated')
+            },
+            beforeDestroy(){
+                console.log('beforeDestroy');
+            },
+            destroy(){
+                console.log('destroy');
+            }
+
+        })
+
+
+    </script>
+</body>
+</html>
